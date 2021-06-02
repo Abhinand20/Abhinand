@@ -1,5 +1,35 @@
 #Decision Tree classifier from scratch
 
+'''
+Helper modules :- 
+1) Node class - 
+    Only 1 constructor method:
+    Decision Node - Feature Index,left_val,right_val,info_gain,threshold
+    Leaf Node - Just need value
+2) Tree class - (Contains the complete logic for DT)
+    Methods -
+    a) Constructor - Initialize stopping conditions and Root Node
+    b) Build Tree - Creates the complete tree
+    c) Get Best Split - Check for all possible thresholds and return best split
+    d) Split- Helper function used in Get Best Split to split the data 
+    e) Information Gain - Return IG of decision node
+    f) Gini Index - Helper fn used in Info gain
+    g) Calc leaf values - Returns mode of split
+    h) Fit
+    i) Predict
+    j) Make Prediction
+
+
+--> Gini Index 
+gini = 1 - (sum(square(prob of all classes of target variable in split))
+
+---> Information Gain
+IG = gini(parent) - weight(i)*gini(child(i))
+where weight(i) = len(samples_in_child(i))/len(total_samples_parent)
+
+'''
+
+
 class Node():
     def __init__(self,feature_index=None,threshold=None,left=None,right=None,info_gain=None,value=None):
         '''Class used to represent a Node - left and right are also Nodes (Creates a tree)'''
